@@ -1,0 +1,270 @@
+================================================================================
+EXPRESSION EVALUATION SYSTEM USING STACK - ACADEMIC TEST SUITE
+Course: Data Structures & Algorithms (Topic #15)
+================================================================================
+
+Test Case ID: 1
+Category: Basic Addition
+Input: 5 + 3
+Infix: 5 + 3
+Expected Postfix: 5 3 +
+Expected Result: 8
+Actual Result: 8
+Status: PASS
+Description: Validates simple two-operand binary addition.
+
+--------------------------------------------------------------------------------
+Test Case ID: 2
+Category: Operator Precedence
+Input: 10 + 5 * 2
+Infix: 10 + 5 * 2
+Expected Postfix: 10 5 2 * +
+Expected Result: 20
+Actual Result: 20
+Status: PASS
+Description: Confirms multiplication (*) has higher precedence than addition (+).
+             Must NOT evaluate left-to-right to 30.
+
+--------------------------------------------------------------------------------
+Test Case ID: 3
+Category: Parentheses Overriding Precedence
+Input: (10 + 5) * 2
+Infix: (10 + 5) * 2
+Expected Postfix: 10 5 + 2 *
+Expected Result: 30
+Actual Result: 30
+Status: PASS
+Description: Ensures parentheses correctly override standard operator precedence.
+
+--------------------------------------------------------------------------------
+Test Case ID: 4
+Category: Division and Grouping
+Input: 100 / (5 * 2)
+Infix: 100 / (5 * 2)
+Expected Postfix: 100 5 2 * /
+Expected Result: 10
+Actual Result: 10
+Status: PASS
+Description: Evaluates nested multiplication inside divisor before division.
+
+--------------------------------------------------------------------------------
+Test Case ID: 5
+Category: Modulo Operator
+Input: 25 % 4
+Infix: 25 % 4
+Expected Postfix: 25 4 %
+Expected Result: 1
+Actual Result: 1
+Status: PASS
+Description: Evaluates integer modulus remainder calculation.
+
+--------------------------------------------------------------------------------
+Test Case ID: 6
+Category: Exponentiation
+Input: 2 ^ 3
+Infix: 2 ^ 3
+Expected Postfix: 2 3 ^
+Expected Result: 8
+Actual Result: 8
+Status: PASS
+Description: Tests power calculation 2^3 = 8.
+
+--------------------------------------------------------------------------------
+Test Case ID: 7
+Category: Division by Zero (Runtime Error Handling)
+Input: 10 / 0
+Infix: 10 / 0
+Expected Postfix: 10 0 /
+Expected Result: Error: Division by zero is not allowed.
+Actual Result: Error: Division by zero is not allowed.
+Status: PASS
+Description: System gracefully catches division by zero without program crash.
+
+--------------------------------------------------------------------------------
+Test Case ID: 8
+Category: Consecutive Operators (Syntax Validation)
+Input: 10 + * 5
+Infix: 10 + * 5
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Invalid operator placement (consecutive operators).
+Actual Result: Error: Invalid operator placement (consecutive operators).
+Status: PASS
+Description: Rejects adjacent invalid operators before conversion or evaluation.
+
+--------------------------------------------------------------------------------
+Test Case ID: 9
+Category: Unbalanced Parentheses (Syntax Validation)
+Input: (10 + 5
+Infix: (10 + 5
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Unbalanced parentheses (missing closing parenthesis).
+Actual Result: Error: Unbalanced parentheses (missing closing parenthesis).
+Status: PASS
+Description: Stack-based parenthesis counter identifies unclosed opening parenthesis.
+
+--------------------------------------------------------------------------------
+Test Case ID: 10
+Category: Redundant / Grouping Parentheses
+Input: 10 + (5 * 2)
+Infix: 10 + (5 * 2)
+Expected Postfix: 10 5 2 * +
+Expected Result: 20
+Actual Result: 20
+Status: PASS
+Description: Parentheses reinforcing existing precedence operate smoothly.
+
+--------------------------------------------------------------------------------
+Test Case ID: 11
+Category: Multi-Digit Operands
+Input: 125 + 50
+Infix: 125 + 50
+Expected Postfix: 125 50 +
+Expected Result: 175
+Actual Result: 175
+Status: PASS
+Description: Demonstrates parser treats multi-digit numbers as individual tokens.
+
+--------------------------------------------------------------------------------
+Test Case ID: 12
+Category: Large Number Division
+Input: 5000 / 25
+Infix: 5000 / 25
+Expected Postfix: 5000 25 /
+Expected Result: 200
+Actual Result: 200
+Status: PASS
+Description: Verifies multi-digit numeric precision and division.
+
+--------------------------------------------------------------------------------
+Test Case ID: 13
+Category: Right-to-Left Exponentiation Associativity
+Input: 2 ^ 3 ^ 2
+Infix: 2 ^ 3 ^ 2
+Expected Postfix: 2 3 2 ^ ^
+Expected Result: 512
+Actual Result: 512
+Status: PASS
+Description: Evaluates 2^(3^2) = 2^9 = 512. Confirms '^' is right-associative,
+             not (2^3)^2 = 8^2 = 64.
+
+--------------------------------------------------------------------------------
+Test Case ID: 14
+Category: Floating-Point Operands
+Input: 25.5 + 4.5
+Infix: 25.5 + 4.5
+Expected Postfix: 25.5 4.5 +
+Expected Result: 30
+Actual Result: 30
+Status: PASS
+Description: Verifies decimal numbers with fractional components.
+
+--------------------------------------------------------------------------------
+Test Case ID: 15
+Category: Deeply Nested Parentheses
+Input: ((10 + 5) * (2 + 3)) / 5
+Infix: ((10 + 5) * (2 + 3)) / 5
+Expected Postfix: 10 5 + 2 3 + * 5 /
+Expected Result: 15
+Actual Result: 15
+Status: PASS
+Description: Confirms arbitrary nesting depth of parentheses.
+
+--------------------------------------------------------------------------------
+Test Case ID: 16
+Category: Modulo by Zero (Runtime Error Handling)
+Input: 25 % 0
+Infix: 25 % 0
+Expected Postfix: 25 0 %
+Expected Result: Error: Modulo by zero is not allowed.
+Actual Result: Error: Modulo by zero is not allowed.
+Status: PASS
+Description: System catches modulo by zero.
+
+--------------------------------------------------------------------------------
+Test Case ID: 17
+Category: Invalid Character Detection
+Input: 10 + A
+Infix: 10 + A
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Invalid character found: 'A'
+Actual Result: Error: Invalid character found: 'A'
+Status: PASS
+Description: Lexical validator rejects non-numeric/non-operator characters.
+
+--------------------------------------------------------------------------------
+Test Case ID: 18
+Category: Empty Expression
+Input: ""
+Infix: ""
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Expression cannot be empty.
+Actual Result: Error: Expression cannot be empty.
+Status: PASS
+Description: Empty or blank strings are rejected immediately.
+
+--------------------------------------------------------------------------------
+Test Case ID: 19
+Category: Leading Operator
+Input: * 10
+Infix: * 10
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Invalid operator placement (leading binary operator).
+Actual Result: Error: Invalid operator placement (leading binary operator).
+Status: PASS
+Description: Binary operator cannot appear without a preceding operand.
+
+--------------------------------------------------------------------------------
+Test Case ID: 20
+Category: Trailing Operator
+Input: 10 +
+Infix: 10 +
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Expression ends with an incomplete operator.
+Actual Result: Error: Expression ends with an incomplete operator.
+Status: PASS
+Description: Expression ending abruptly with an operator is rejected.
+
+--------------------------------------------------------------------------------
+Test Case ID: 21
+Category: Unary Minus Handling
+Input: (-5 * 2)
+Infix: (-5 * 2)
+Expected Postfix: -5 2 *
+Expected Result: -10
+Actual Result: -10
+Status: PASS
+Description: Negative operand inside parentheses tokenizes as -5 and evaluates to -10.
+
+--------------------------------------------------------------------------------
+Test Case ID: 21
+Category: Unary Minus Before Parentheses
+Input: -(5 + 2)
+Infix: -(5 + 2)
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Unary '-' before a parenthesized expression is not supported.
+Actual Result: Error: Unary '-' before a parenthesized expression is not supported.
+Status: PASS
+Description: Rejects unary minus directly preceding a parenthesized expression.
+
+--------------------------------------------------------------------------------
+Test Case ID: 22
+Category: Unary Plus Before Parentheses
+Input: +(5 + 2)
+Infix: +(5 + 2)
+Expected Postfix: N/A (Rejected in validator)
+Expected Result: Error: Unary '+' before a parenthesized expression is not supported.
+Actual Result: Error: Unary '+' before a parenthesized expression is not supported.
+Status: PASS
+Description: Rejects unary plus directly preceding a parenthesized expression.
+
+--------------------------------------------------------------------------------
+Test Case ID: 23
+Category: Prefix Evaluation Equivalence
+Input: 3 * (4 + 2)
+Infix: 3 * (4 + 2)
+Expected Postfix: 3 4 2 + *
+Expected Prefix: * 3 + 4 2
+Expected Result: 18
+Actual Result: 18
+Status: PASS
+Description: Confirms Infix, Postfix, and Prefix evaluations all agree on 18.

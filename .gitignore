@@ -1,0 +1,67 @@
+# ==============================================================================
+# Expression Evaluation System - .gitignore
+# College-level DSA Project Standards
+# ==============================================================================
+
+# Compiled binaries and executables
+*.exe
+*.out
+*.app
+*.bin
+*.dll
+*.so
+*.dylib
+
+# Intermediate object files and static libraries
+*.o
+*.obj
+*.a
+*.lib
+
+# Build directories and CMake generated files
+build/
+bin/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+
+# Debugger and symbol files
+*.dSYM/
+*.pdb
+*.ilk
+*.idb
+
+# IDE and Editor configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.vs/
+*.suo
+*.user
+*.userosv
+*.sln.docstates
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Environment, credentials, and secrets
+.env
+.env.*
+*.pem
+*.key
+*.token
+
+# Temporary files, caches, and logs
+*.log
+*.tmp
+*.bak
+*.cache
